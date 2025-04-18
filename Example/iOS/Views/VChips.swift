@@ -134,16 +134,12 @@ struct VChipsView: View {
                             maxColumns: maxColumns,
                             columnCount: $columnCount
                         ) {
-                            //                        Text("You can use text")
-                            //
-                            //                        Button { }
-                            //                        label: {
-                            //                            Text("You can use button")
-                            //                        }
-                            //
-                            //                        Toggle(isOn: .constant(true), label: {
-                            //                            Text("Or any other view!")
-                            //                        })
+//                            Text("You can use text")
+//                            
+//                            Button { }
+//                            label: {
+//                                Text("You can use button")
+//                            }
                             
                             ForEach(tags, id: \.self) { tag in
                                 factory(tag)

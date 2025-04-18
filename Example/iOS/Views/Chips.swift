@@ -133,11 +133,6 @@ struct ChipsView: View {
 //                        label: {
 //                            Text("You can use button")
 //                        }
-//
-//                        Toggle(isOn: .constant(true), label: {
-//                            Text("Or any other view!")
-//                        })
-
                         ForEach(tags, id: \.self) { tag in
                             factory(tag)
                         }
