@@ -7,6 +7,10 @@
 [![contact: @lexkraev](https://img.shields.io/badge/contact-%40lexkraev-blue.svg?style=flat)](https://t.me/lexkraev)
 [![Telegram Group](https://img.shields.io/endpoint?color=neon&style=flat-square&url=https%3A%2F%2Ftg.sumanjay.workers.dev%2Fswiftui_dev)](https://telegram.dog/swiftui_dev)
 
+<p align="left">
+<img src="Media/logo.png" alt="corner radius" width="400">
+</p>
+
 Flow is a SwiftUI package that provides a flexible layout component for arranging views in [horizontal rows](https://github.com/c-villain/Flow#flowhstack) or [vertical columns](https://github.com/c-villain/Flow#flowvstack) with automatic wrapping.
 
 ## Advantages
