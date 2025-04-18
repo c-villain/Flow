@@ -122,15 +122,6 @@ internal struct FlowHStackPreview: View {
     
     @ViewBuilder
     private func factory(_ name: String) -> some View {
-//        Toggle(isOn: $isOn) {
-//            Text(name)
-//        }
-//        .contentShape(Rectangle())
-//        HStack {
-//            Text(name)
-//            Toggle("", isOn: $isOn)
-//                .labelsHidden() // скрываем стандартный текст
-//        }
         HStack(spacing: 6) {
             Text(name)
                 .lineLimit(1)
