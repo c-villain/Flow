@@ -1,15 +1,15 @@
 import SwiftUI
 import Flow
 
-struct ChipsView: View {
+struct VChipsView: View {
     
-    let initMaxLines: Int = 3
-    @State private var maxLines: Int = 3
-    @State private var lineCount: Int = 0
+    let initMaxColumns: Int = 1
+    @State private var maxColumns: Int = 1
+    @State private var columnCount: Int = 0
     @State private var inputText: String = ""
 
     @State private var tags: [String] = [
-        "Dr.-Ing. h.c. F. Porsche AG",
+        "Porsche AG",
         "BMW",
         "Mercedes",
         "Audi",
@@ -19,7 +19,14 @@ struct ChipsView: View {
         "Ford",
         "Renault",
         "Nissan",
-        "Bayerische Motoren Werke Aktiengesellschaft (AG)"
+        "Chevrolet",
+        "Volvo",
+        "Mitsubishi",
+        "Subaru",
+        "Lexus",
+        "Chrysler",
+        "Acura",
+        "Jeep"
     ]
     
     @State private var hAlignment: HorizontalAlignment = .leading
@@ -120,46 +127,46 @@ struct ChipsView: View {
                         .font(.headline)
                         .padding(.top, 16.0)
                     
-                    FlowHStack(
-                        horizontalSpacing: horizontalSpacing,
-                        verticalSpacing: verticalSpacing,
-                        horizontalAlignment: hAlignment,
-                        maxLines: maxLines,
-                        lineCount: $lineCount
-                    ) {
-//                        Text("You can use text")
-//
-//                        Button { }
-//                        label: {
-//                            Text("You can use button")
-//                        }
-//
-//                        Toggle(isOn: .constant(true), label: {
-//                            Text("Or any other view!")
-//                        })
-
-                        ForEach(tags, id: \.self) { tag in
-                            factory(tag)
+                    ScrollView(.horizontal) {
+                        FlowVStack(
+                            horizontalSpacing: 8.0,
+                            verticalSpacing: 8.0,
+                            maxColumns: maxColumns,
+                            columnCount: $columnCount
+                        ) {
+                            //                        Text("You can use text")
+                            //
+                            //                        Button { }
+                            //                        label: {
+                            //                            Text("You can use button")
+                            //                        }
+                            //
+                            //                        Toggle(isOn: .constant(true), label: {
+                            //                            Text("Or any other view!")
+                            //                        })
+                            
+                            ForEach(tags, id: \.self) { tag in
+                                factory(tag)
+                            }
                         }
+                        .frame(maxHeight: 200)
+                        .animation(animation)
+                        .lineLimit(1)
+                        .clipped() // <= ‼️ Don't forget
+                        .contentShape(Rectangle())
+                        .padding(16.0)
                     }
-                    .frame(maxWidth: .infinity)
-                    .animation(animation)
-                    .lineLimit(1)
-                    .clipped() // <= ‼️ Don't forget
-                    .contentShape(Rectangle())
-                    .padding(16.0)
                     
-                    
-                    Text("Total lines: \(lineCount)")
+                    Text("Total columns: \(columnCount)")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                     
                     Button {
                         withAnimation(animation) {
-                            maxLines = (maxLines == Int.max) ? initMaxLines : Int.max
+                            maxColumns = (maxColumns == Int.max) ? initMaxColumns : Int.max
                         }
                     } label: {
-                        Text(maxLines == Int.max ? "Show only \(initMaxLines) lines" : "Show all")
+                        Text(maxColumns == Int.max ? "Show only \(initMaxColumns) columns" : "Show all")
                             .padding()
                     }
                 }
@@ -178,8 +185,8 @@ struct ChipsView: View {
     }
 }
 
-struct ChipsView_Previews: PreviewProvider {
+struct VChipsView_Previews: PreviewProvider {
     static var previews: some View {
-        ChipsView()
+        VChipsView()
     }
 }

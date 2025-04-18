@@ -6,14 +6,25 @@ struct ExampleView: View {
         TabView {
             chips
             filters
+            vChips
         }
     }
     
+    // MARK: - FlowHStack Demo
     var chips: some View {
         ChipsView()
             .tabItem {
                 Image(systemName: "tag.circle")
-                Text("Chips cloud")
+                Text("FlowHStack")
+            }
+    }
+    
+    // MARK: - FlowVStack Demo
+    var vChips: some View {
+        VChipsView()
+            .tabItem {
+                Image(systemName: "tag.circle")
+                Text("FlowHStack")
             }
     }
     
