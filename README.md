@@ -98,6 +98,67 @@ FlowHStack(maxLines: 2, lineCount: $lineCount) {
 }
 ```
 
+## FlowVStack
+
+Layout component that arranges views in vertical columns and wraps them into new columns when needed.
+
+A ``FlowVStack`` automatically wraps its content to a new column when it exceeds the available height, similar to column wrapping in grid systems or [`FlowColumn`](https://developer.android.com/develop/ui/compose/layouts/flow) in Jetpack Compose. The number of columns can be limited via the maxColumns parameter.
+
+
+A ``FlowVStack`` automatically wraps its content to a new column when it exceeds the available height, similar to `flow` in CSS but oriented vertically. The number of columns can be limited via the ``maxColumns`` parameter.
+
+```swift
+FlowVStack {
+    ForEach(tags, id: \.self) {
+        Text($0)
+    }
+}
+```
+
+### Layout behavior
+
+The layout automatically adapts to the container’s height, distributing child views across columns and wrapping as needed.
+
+You can configure alignment:
+- Use `verticalAlignment:` to control how each column is aligned vertically (e.g. `.top`, `.center`, `.bottom`)
+- Use `horizontalAlignment:` to align views **within** a column (e.g. `.leading`, `.center`, `.trailing`)
+
+```swift
+FlowVStack(
+    horizontalAlignment: .center,
+    verticalAlignment: .top
+) {
+    ...
+}
+```
+
+### Customizing spacing
+
+Use `horizontalSpacing:` and `verticalSpacing:` to define the spacing between columns and between items within each column:
+
+```swift
+FlowVStack(
+    horizontalSpacing: 12,
+    verticalSpacing: 8
+) {
+    ...
+}
+```
+
+### Limiting and observing columns
+
+You can restrict the number of rendered columns using `maxColumns:` and observe the actual column count with `columnCount:`:
+
+```swift
+@State private var columnCount: Int = 0
+
+FlowVStack(maxColumns: 2, columnCount: $columnCount) {
+    ...
+}
+```
+
+If the provided content is empty, ``FlowVStack`` renders as `EmptyView` and does not occupy any space.
+
 ## Communication
 
 - If you **found a bug**, open an issue or submit a fix via a pull request.
