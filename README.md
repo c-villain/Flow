@@ -9,39 +9,13 @@
 
 Flow is a SwiftUI package that provides a flexible layout component for arranging views in [horizontal rows](https://github.com/c-villain/Flow#flowhstack) or [vertical columns](https://github.com/c-villain/Flow#flowvstack) with automatic wrapping.
 
-## Installation
-
-#### Swift Package Manager
-
-To integrate ```Flow``` into your project using SwiftPM add the following to your `Package.swift`:
-
-```swift
-dependencies: [
-    .package(url: "https://github.com/c-villain/Flow", from: "0.1.0"),
-],
-```
-or via [XcodeGen](https://github.com/yonaskolb/XcodeGen) insert into your `project.yml`:
-
-```yaml
-name: YourProjectName
-options:
-  deploymentTarget:
-    iOS: 13.0
-packages:
-  Flow:
-    url: https://github.com/c-villain/Flow
-    from: 0.1.0
-targets:
-  YourTarget:
-    type: application
-    ...
-    dependencies:
-       - package: Flow
-```
-
 ## FlowHStack
 
 SwiftUI layout component that arranges views in horizontal rows and wraps them into new lines when needed
+
+<p align="left">
+<img src="Media/FlowHStack.png" alt="corner radius" height="200">
+</p>
 
 A ``FlowHStack`` automatically wraps its content to a new row when it exceeds the available width, similar to text wrapping or [`FlowRow`](https://developer.android.com/develop/ui/compose/layouts/flow) in Jetpack Compose or [`flex-wrap`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap) in CSS. The number of lines can be limited via the ``maxLines`` parameter.
 
@@ -102,6 +76,10 @@ FlowHStack(maxLines: 2, lineCount: $lineCount) {
 
 Layout component that arranges views in vertical columns and wraps them into new columns when needed.
 
+<p align="left">
+<img src="Media/FlowVStack.png" alt="corner radius" height="200">
+</p>
+
 A ``FlowVStack`` automatically wraps its content to a new column when it exceeds the available height, similar to column wrapping in grid systems or [`FlowColumn`](https://developer.android.com/develop/ui/compose/layouts/flow) in Jetpack Compose. The number of columns can be limited via the maxColumns parameter.
 
 
@@ -158,6 +136,36 @@ FlowVStack(maxColumns: 2, columnCount: $columnCount) {
 ```
 
 If the provided content is empty, ``FlowVStack`` renders as `EmptyView` and does not occupy any space.
+
+## Installation
+
+#### Swift Package Manager
+
+To integrate ```Flow``` into your project using SwiftPM add the following to your `Package.swift`:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/c-villain/Flow", from: "0.1.0"),
+],
+```
+or via [XcodeGen](https://github.com/yonaskolb/XcodeGen) insert into your `project.yml`:
+
+```yaml
+name: YourProjectName
+options:
+  deploymentTarget:
+    iOS: 13.0
+packages:
+  Flow:
+    url: https://github.com/c-villain/Flow
+    from: 0.1.0
+targets:
+  YourTarget:
+    type: application
+    ...
+    dependencies:
+       - package: Flow
+```
 
 ## Communication
 
