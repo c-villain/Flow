@@ -129,8 +129,9 @@ struct VChipsView: View {
                     
                     ScrollView(.horizontal) {
                         FlowVStack(
-                            horizontalSpacing: 8.0,
-                            verticalSpacing: 8.0,
+                            horizontalSpacing: horizontalSpacing,
+                            verticalSpacing: verticalSpacing,
+                            horizontalAlignment: hAlignment,
                             maxColumns: maxColumns,
                             columnCount: $columnCount
                         ) {

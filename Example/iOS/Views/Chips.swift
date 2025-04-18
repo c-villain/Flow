@@ -95,7 +95,7 @@ struct ChipsView: View {
                     // MARK: Spacing Controls
                     VStack(alignment: .leading, spacing: 12) {
                         Text("Horizontal spacing: \(Int(horizontalSpacing))")
-                        Slider(value: $horizontalSpacing, in: 0...32, step: 1)
+                        Slider(value: $horizontalSpacing, in: 0...64, step: 1)
                         
                         Text("Vertical spacing: \(Int(verticalSpacing))")
                         Slider(value: $verticalSpacing, in: 0...32, step: 1)
@@ -127,12 +127,25 @@ struct ChipsView: View {
                         maxLines: maxLines,
                         lineCount: $lineCount
                     ) {
-//                        Text("You can use text")
-//
-//                        Button { }
-//                        label: {
-//                            Text("You can use button")
-//                        }
+                        /*
+                        Text("You may use text!")
+                            .font(.title)
+                            .foregroundColor(.secondary)
+                        
+                        Button {} label: {
+                            Text("You may use button!")
+                                .font(.title)
+                                .foregroundColor(.red)
+                        }
+                        
+                        // or any other view!
+                        
+                        Label("Sun", systemImage: "sun.max.fill")
+                        
+                        RoundedRectangle(cornerRadius: 8.0)
+                            .fill(Color.green)
+                            .frame(width: 44, height: 44)
+                        */
                         ForEach(tags, id: \.self) { tag in
                             factory(tag)
                         }
