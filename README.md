@@ -9,6 +9,41 @@
 
 Flow is a SwiftUI package that provides a flexible layout component for arranging views in [horizontal rows](https://github.com/c-villain/Flow#flowhstack) or [vertical columns](https://github.com/c-villain/Flow#flowvstack) with automatic wrapping.
 
+## Advantages
+
+Unlike most alternatives, components from ``Flow`` allows you to directly pass any SwiftUI views inside the closure. You’re not limited to a fixed data model — instead, you can freely compose mixed view types:
+
+```swift
+FlowHStack {
+    Chip("🔥")
+
+
+    Text("You can use Text!")
+        .font(.headline)
+        .foregroundColor(.blue)
+
+    Button(action: {
+       ...
+    }) {
+        Text("Tap me")
+    }
+
+    Label("Sun", systemImage: "sun.max.fill")
+
+    RoundedRectangle(cornerRadius: 8.0)
+        .fill(Color.green)
+        .frame(width: 40, height: 40)
+
+    // Dynamically generated views via ForEach
+    ForEach(tags, id: \.self) { tag in
+        Chip(tag)
+    }
+}
+```
+
+This flexibility allows you to easily build rich, dynamic, and visually diverse layouts — all within a single Flow block. Whether you need tags, icons, buttons, or fully custom components, everything fits seamlessly.
+
+
 ## FlowHStack
 
 SwiftUI layout component that arranges views in horizontal rows and wraps them into new lines when needed
